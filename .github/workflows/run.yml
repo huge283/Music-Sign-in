@@ -23,13 +23,14 @@ jobs:
       with:
         python-version: 3.7
     - name: 签到
+      env: 
+        TOKEN : ${{ secrets.TOKEN }}
+        Secret : ${{ secrets.SECRET }}
       run: |
         pip install -r requirements.txt
         
         user='${{ secrets.USER }}'
         pwd='${{ secrets.PWD }}'
-        token='${{ secrets.TOKEN }}'
-        secret='${{ secrets.SECRET }}'
         
         user_list=()
         pwd_list=()
@@ -61,7 +62,7 @@ jobs:
         python3 checkin.py <<EOF
         ${user_list[$i]}
         ${pwd_list[$i]}
-        ${token}
-        ${secret}
+        ${TOKEN}
+        ${SECRET}
         EOF
         done
