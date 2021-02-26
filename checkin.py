@@ -115,7 +115,6 @@ else:
     print("发生错误："+str(object['code'])+object['message'])
     exit(object['code'])
     
-def dd_robot(txt):
   HEADERS = {"Content-Type": "application/json;charset=utf-8"}
   key = "钉钉机器人的KEY"
   url = "钉钉的URL?access_token=%s" % key
