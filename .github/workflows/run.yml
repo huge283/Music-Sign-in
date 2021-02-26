@@ -28,8 +28,8 @@ jobs:
         
         user='${{ secrets.USER }}'
         pwd='${{ secrets.PWD }}'
-        token = '${{ secrets.TOKEN }}'
-        secret = '${{ secrets.SECRET }}'
+        token='${{ secrets.TOKEN }}'
+        secret='${{ secrets.SECRET }}'
         
         user_list=()
         pwd_list=()
@@ -61,5 +61,7 @@ jobs:
         python3 checkin.py <<EOF
         ${user_list[$i]}
         ${pwd_list[$i]}
+        ${token}
+        ${secret}
         EOF
         done
