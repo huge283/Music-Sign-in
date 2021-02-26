@@ -1,5 +1,6 @@
 import requests,base64,json,hashlib
 from Crypto.Cipher import AES
+import json
 def encrypt(key, text):
     cryptor = AES.new(key.encode('utf8'), AES.MODE_CBC, b'0102030405060708')
     length = 16                    
