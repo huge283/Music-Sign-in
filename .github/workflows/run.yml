@@ -28,6 +28,8 @@ jobs:
         
         user='${{ secrets.USER }}'
         pwd='${{ secrets.PWD }}'
+        token = '${{ secrets.TOKEN }}'
+        secret = '${{ secrets.SECRET }}'
         
         user_list=()
         pwd_list=()
