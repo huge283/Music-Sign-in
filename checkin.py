@@ -116,8 +116,8 @@ else:
     exit(object['code'])
     
 HEADERS = {"Content-Type":"application/json;charset=utf-8"}
-key = token
-url = 'https://oapi.dingtalk.com/robot/send?access_token='+secret
+key = SECRET
+url = 'https://oapi.dingtalk.com/robot/send?access_token='+TOKEN
 data_info = {
     "msgtype": "text",
     "text": {
@@ -129,3 +129,4 @@ data_info = {
   # value = bytes(json.dumps(data_info,ensure_ascii=False,indent=4),"utf-8")
 value = json.dumps(data_info)
 response = requests.post(url,data=value,headers=HEADERS)
+print(response)
