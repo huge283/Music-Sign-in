@@ -116,8 +116,8 @@ else:
     exit(object['code'])
     
 HEADERS = {"Content-Type":"application/json;charset=utf-8"}
-key = input()
-url = 'https://oapi.dingtalk.com/robot/send?access_token='+input()
+key = token
+url = 'https://oapi.dingtalk.com/robot/send?access_token='+secret
 data_info = {
     "msgtype": "text",
     "text": {
