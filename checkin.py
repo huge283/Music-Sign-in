@@ -59,7 +59,7 @@ else:
 res=s.post(url=url2,data=protect('{"type":0}'),headers=headers)
 object=json.loads(res.text)
 if object['code']!=200 and object['code']!=-2:
-    txt += '\n'+'签到时发生错误："+object['msg']'
+    txt += '\n'+'签到时发生错误：'+object['msg']'
     print("签到时发生错误："+object['msg'])
 else:
     if object['code']==200:
