@@ -116,8 +116,8 @@ else:
     exit(object['code'])
     
 HEADERS = {"Content-Type":"application/json;charset=utf-8"}
-key = "钉钉机器人的KEY"
-url = "钉钉的URL?access_token=%s" % key
+key = input()
+url = 'https://oapi.dingtalk.com/robot/send?access_token='+input()
 data_info = {
     "msgtype": "text",
     "text": {
