@@ -115,10 +115,10 @@ else:
     print("发生错误："+str(object['code'])+object['message'])
     exit(object['code'])
     
-  HEADERS = {"Content-Type": "application/json;charset=utf-8"}
-  key = "钉钉机器人的KEY"
-  url = "钉钉的URL?access_token=%s" % key
-  data_info = {
+HEADERS = {"Content-Type":"application/json;charset=utf-8"}
+key = "钉钉机器人的KEY"
+url = "钉钉的URL?access_token=%s" % key
+data_info = {
     "msgtype": "text",
     "text": {
     "content": txt
@@ -127,5 +127,5 @@ else:
   }
   #转化成自己需要的数据格式:转换成python格式的数据
   # value = bytes(json.dumps(data_info,ensure_ascii=False,indent=4),"utf-8")
-  value = json.dumps(data_info)
-  response = requests.post(url,data=value,headers=HEADERS)
+value = json.dumps(data_info)
+response = requests.post(url,data=value,headers=HEADERS)
