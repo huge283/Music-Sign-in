@@ -63,7 +63,7 @@ if object['code']!=200 and object['code']!=-2:
     print("签到时发生错误："+object['msg'])
 else:
     if object['code']==200:
-        txt += '\n'+'签到成功，经验+"+str(object['point'])
+        txt += '\n'+'签到成功，经验+'+str(object['point'])
         print("签到成功，经验+"+str(object['point']))
     else:
         txt += '\n'+'重复签到'
@@ -122,7 +122,7 @@ def dd_robot(txt):
   data_info = {
     "msgtype": "text",
     "text": {
-    "content": "钉钉机器人的认证凭据"+msg
+    "content": txt
     },
     "isAtAll": True
   }
