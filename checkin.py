@@ -48,19 +48,24 @@ res=s.post(url=url,data=protect(json.dumps(logindata)),headers=headers2)
 tempcookie=res.cookies
 object=json.loads(res.text)
 if object['code']==200:
+    txt = '签到成功'
     print("登录成功！")
 else:
+    txt = '登录失败！请检查密码是否正确！'+str(object['code'])
     print("登录失败！请检查密码是否正确！"+str(object['code']))
     exit(object['code'])
 
 res=s.post(url=url2,data=protect('{"type":0}'),headers=headers)
 object=json.loads(res.text)
 if object['code']!=200 and object['code']!=-2:
+    txt += '\n'+'签到时发生错误："+object['msg']'
     print("签到时发生错误："+object['msg'])
 else:
     if object['code']==200:
+        txt += '\n'+'签到成功，经验+"+str(object['point'])'
         print("签到成功，经验+"+str(object['point']))
     else:
+        txt += '\n'+'重复签到'
         print("重复签到")
 
 
@@ -101,8 +106,26 @@ postdata={
 res=s.post(url,protect(json.dumps(postdata)))
 object=json.loads(res.text,strict=False)
 if object['code']==200:
+    txt += '\n'+'刷单成功！共'+str(count)+'首'
     print("刷单成功！共"+str(count)+"首")
     exit()
 else:
+    txt += '\n'+'发生错误：'+str(object['code'])+object['message']
     print("发生错误："+str(object['code'])+object['message'])
     exit(object['code'])
+    
+def dd_robot(txt):
+  HEADERS = {"Content-Type": "application/json;charset=utf-8"}
+  key = "钉钉机器人的KEY"
+  url = "钉钉的URL?access_token=%s" % key
+  data_info = {
+    "msgtype": "text",
+    "text": {
+    "content": "钉钉机器人的认证凭据"+msg
+    },
+    "isAtAll": True
+  }
+  #转化成自己需要的数据格式:转换成python格式的数据
+  # value = bytes(json.dumps(data_info,ensure_ascii=False,indent=4),"utf-8")
+  value = json.dumps(data_info)
+  response = requests.post(url,data=value,headers=HEADERS)
